@@ -1,14 +1,7 @@
-import React,{useEffect} from 'react';
+import React from 'react';
 import Rating from './Rating';
-import {fetchProduct} from '../actions/Product';
-import {useDispatch} from 'react-redux';
-
 
  function Product(props){
-    const dispatch=useDispatch();
-    useEffect(()=>{
-        dispatch(fetchProduct())
-        });
     const{product}=props;
     return(
         <div>
