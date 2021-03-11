@@ -10,3 +10,4 @@ React ve .Net Core ile oluşturulan bir Eticaret sitesidir.
 *open new terminal* <br>
 `$ cd frontend` <br>
 `$ npm start`
+

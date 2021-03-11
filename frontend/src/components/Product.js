@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProduct } from '../actions/ProductAction';
+import {Link} from 'react-router-dom';
 import Rating from './Rating';
 
  function Product(props){
@@ -15,13 +16,13 @@ import Rating from './Rating';
           {
             props.p.map((s)=>(
               <div key={s.productId} className="card">
-              <a href={`/product/${s.productId}`}>
+              <Link to={`/product/${s.productId}`}>
               <img className="medium" src={s.image} alt={s.name}/>
-              </a>
+              </Link>
               <div className="card-body">
-              <a href={`/product/${s.productId}`}>
+              <Link to={`/product/${s.productId}`}>
                    <h2>{s.name}</h2>
-               </a>
+               </Link>
                <Rating rating={s.rating} numReviews={s.numReviews}></Rating>
                <div className="price">${s.price}</div>
               </div> 
