@@ -1,22 +1,34 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchProduct } from '../actions/ProductAction';
 import Rating from './Rating';
 
  function Product(props){
-    const{product}=props;
+  const dispatch=useDispatch();
+  const productList=useSelector((state)=>state.productList);
+  
+  useEffect(()=>{
+    dispatch(fetchProduct())
+    },[dispatch]);
     return(
         <div>
-              <div key={product._id} className="card">
-                <a href={`/product/${product._id}`}>
-                <img className="medium" src={product.image} alt={product.name}/>
-                </a>
-                <div className="card-body">
-                <a href={`/product/${product._id}`}>
-                     <h2>{product.name}</h2>
-                 </a>
-                 <Rating rating={product.rating} numReviews={product.numReviews}></Rating>
-                 <div className="price">${product.price}</div>
-                </div> 
-                </div>
+          {
+            props.p.map((s)=>(
+              <div key={s.productId} className="card">
+              <a href={`/product/${s.productId}`}>
+              <img className="medium" src={s.image} alt={s.name}/>
+              </a>
+              <div className="card-body">
+              <a href={`/product/${s.productId}`}>
+                   <h2>{s.name}</h2>
+               </a>
+               <Rating rating={s.rating} numReviews={s.numReviews}></Rating>
+               <div className="price">${s.price}</div>
+              </div> 
+              </div>
+            ))
+          }
+            
         </div>
     )
 }
