@@ -4,6 +4,7 @@ React ve .Net Core ile oluşturulan bir Eticaret sitesidir.
 Run Locally
 
 1. Run Backend
+# open terminal
 $ cd backend/ECommerceAPI/ECommerceAPI
 $ dotnet watch run
 
